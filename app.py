@@ -26,6 +26,12 @@ def test_predict_no_image():
 def test_invalid_endpoint():
     response = requests.get(BASE_URL + "/invalid_endpoint")
     assert response.status_code == 404 
+    
+import logging
+log = logging.getLogger(__name__)
 
+
+and use like below:
+log.info(response.status_code)
 if name == "__main__":
     pytest.main()
