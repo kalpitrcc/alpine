@@ -4,8 +4,8 @@ metadata:
   name: admin-role-binding
 subjects:
 - kind: ServiceAccount
-  name: your-service-account
-  namespace: mp3-workspace
+  name: sa-cron-runner
+  namespace: modelserving-p3
 roleRef:
   kind: ClusterRole
   name: admin-role
