@@ -1,0 +1,10 @@
+FROM python:3.11-alpine
+ENV PIP_DEFAULT_TIMEOUT=100\ PYTHONUNBUFFERED=1\
+PIP_DISABLE_PIP_VERSION_CHECK=1\
+PIP_NO_CACHE_DIR=1
+RUN apk add --no-cache --virtual .build-deps \ build-base openssl-dev libffi-dev
+RUN pip install --upgrade pip
+RUN pip install pytest=-7.4.0 requests RUN mkdir tests
+WORKDIR /tests
+COPY main.py /tests/
+COPY sample_images /tests/sample_images/ CMD ["pytest", "main.py"]
